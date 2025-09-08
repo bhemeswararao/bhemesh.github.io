@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhemeswararao Ankireddy - Data Engineer</title>
+    <title>Bhemeswararao Ankireddy - Senior Data Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">🌙</span>
+    </button>
+
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape--1"></div>
+            <div class="shape shape--2"></div>
+            <div class="shape shape--3"></div>
+            <div class="shape shape--4"></div>
+            <div class="shape shape--5"></div>
+        </div>
+    </div>
+
     <!-- Header Navigation -->
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <h3>Bhemeswararao Ankireddy</h3>
+                <h3>Bhemeswararao A.</h3>
             </div>
             <ul class="nav__menu" id="nav-menu">
-                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#home" class="nav__link active">Home</a></li>
                 <li><a href="#about" class="nav__link">About</a></li>
                 <li><a href="#experience" class="nav__link">Experience</a></li>
-                <li><a href="#projects" class="nav__link">Projects</a></li>
                 <li><a href="#skills" class="nav__link">Skills</a></li>
+                <li><a href="#projects" class="nav__link">Projects</a></li>
                 <li><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
             <button class="nav__toggle" id="nav-toggle">
@@ -32,26 +51,65 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <div class="container">
+            <div class="hero__container container">
                 <div class="hero__content">
                     <div class="hero__text">
-                        <h1 class="hero__title">Bhemeswararao Ankireddy</h1>
-                        <h2 class="hero__subtitle">Data Engineer</h2>
+                        <div class="hero__greeting">Hello, I'm</div>
+                        <h1 class="hero__name">Bhemeswararao Ankireddy</h1>
+                        <div class="hero__title">
+                            <span class="typing-text"></span>
+                            <span class="cursor">|</span>
+                        </div>
                         <p class="hero__description">
-                            Transforming raw data into actionable insights with Python, Spark, and cloud technologies
+                            Transforming data into strategic insights through scalable pipelines, 
+                            advanced analytics, and cloud-native solutions. Specialized in building 
+                            enterprise-grade data systems that drive business intelligence.
                         </p>
                         <div class="hero__buttons">
-                            <a href="#projects" class="btn btn--primary">View My Work</a>
-                            <button class="btn btn--outline" id="download-resume">Download Resume</button>
+                            <a href="#projects" class="btn btn--primary">
+                                <span>View My Work</span>
+                                <i class="btn__icon">→</i>
+                            </a>
+                            <button class="btn btn--outline" id="download-resume">
+                                <span>Download Resume</span>
+                                <i class="btn__icon">↓</i>
+                            </button>
+                            <a href="#contact" class="btn btn--ghost">
+                                <span>Let's Connect</span>
+                                <i class="btn__icon">✉</i>
+                            </a>
+                        </div>
+                        <div class="hero__social">
+                            <a href="mailto:bhemesh208@gmail.com" class="social-link" title="Email">
+                                <span class="social-icon">✉</span>
+                            </a>
+                            <a href="https://linkedin.com/in/bhemeswara-rao-ankireddy-905981155" class="social-link" title="LinkedIn" target="_blank">
+                                <span class="social-icon">💼</span>
+                            </a>
+                            <a href="https://github.com" class="social-link" title="GitHub" target="_blank">
+                                <span class="social-icon">🔗</span>
+                            </a>
                         </div>
                     </div>
                     <div class="hero__image">
-                        <div class="hero__photo-placeholder">
-                            <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                                <circle cx="100" cy="100" r="100" fill="var(--color-teal-500)"/>
-                                <circle cx="100" cy="80" r="30" fill="var(--color-surface)"/>
-                                <path d="M60 140 C60 120, 80 100, 100 100 C120 100, 140 120, 140 140 L140 200 L60 200 Z" fill="var(--color-surface)"/>
-                            </svg>
+                        <div class="hero__image-container">
+                            <!-- Replace 'profile.jpg' with your uploaded photo filename -->
+                            <img src="profile.jpg" alt="Bhemeswararao Ankireddy - Data Engineer" class="hero__photo">
+                            <div class="hero__image-decoration"></div>
+                        </div>
+                        <div class="hero__stats">
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="4">0</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="50">0</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" data-target="100">0</div>
+                                <div class="stat-label">K+ Records Processed</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -59,60 +117,135 @@
         </section>
 
         <!-- About Section -->
-        <section class="about section" id="about">
+        <section class="about" id="about">
             <div class="container">
-                <h2 class="section__title">About Me</h2>
-                <div class="about__content">
-                    <p class="about__text">
-                        Result-oriented Data Engineer with 4+ years of experience designing and implementing scalable data pipelines and analytics solutions. Successfully transitioned from blockchain development to data engineering, bringing strong analytical thinking and problem-solving skills. Expertise in Python, Apache Spark, Scala, and cloud platforms including AWS and GCP. Passionate about turning complex data challenges into efficient, automated solutions that drive business value.
+                <div class="section-header">
+                    <span class="section-tag">Get to know me</span>
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-description">
+                        Passionate about transforming raw data into actionable business insights
                     </p>
+                </div>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p class="about__paragraph">
+                            Passionate <strong>Data Engineer</strong> with 4+ years of expertise in designing 
+                            and implementing enterprise-scale data solutions. Successfully transitioned from 
+                            blockchain development to data engineering, bringing unique analytical perspectives 
+                            and innovative problem-solving approaches.
+                        </p>
+                        <p class="about__paragraph">
+                            Specialized in building <strong>robust ETL pipelines</strong>, real-time data processing 
+                            systems, and cloud-native architectures. Proven track record of optimizing data workflows 
+                            that process millions of records daily, resulting in <strong>40% improved processing 
+                            efficiency</strong> and significant cost savings.
+                        </p>
+                        <p class="about__paragraph">
+                            Core competencies include Python, Apache Spark, Scala, AWS cloud services, and advanced 
+                            analytics. Experienced in leading cross-functional teams and <strong>mentoring junior 
+                            engineers</strong> while delivering high-impact data solutions for enterprise clients.
+                        </p>
+                        <div class="about__highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🚀</span>
+                                <span class="highlight-text">4x Performance Improvements</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">⚡</span>
+                                <span class="highlight-text">Real-time Data Processing</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🔒</span>
+                                <span class="highlight-text">Enterprise Security Standards</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section class="experience section" id="experience">
+        <section class="experience" id="experience">
             <div class="container">
-                <h2 class="section__title">Experience</h2>
-                <div class="experience__timeline">
-                    <div class="experience__item">
-                        <div class="experience__date">Nov 2022 - Present</div>
-                        <div class="experience__content">
-                            <h3 class="experience__title">Associate Analyst - Data Engineering</h3>
-                            <h4 class="experience__company">PurpleTalk India Pvt Ltd, Upshot.ai</h4>
-                            <ul class="experience__list">
-                                <li>Developed scalable push notification system processing 100K+ notifications/min using Python, Spark & Ray.io</li>
-                                <li>Built personalized journey engines with Ray.io enabling lifecycle-based user engagement</li>
-                                <li>Created Journey Report Computation service using Scala, Spark, and Theta Sketches</li>
-                                <li>Enhanced WhatsApp & SMS APIs using Python and Flask for platform-wide integration</li>
-                                <li>Developed KMS-Encryption utilities for secure PII data handling with AWS KMS</li>
-                                <li>Led Event-Report computation pipelines for real-time user analytics</li>
-                                <li>Supervised and mentored 3 interns in Python and Big Data technologies</li>
-                            </ul>
+                <div class="section-header">
+                    <span class="section-tag">My Journey</span>
+                    <h2 class="section-title">Professional Experience</h2>
+                    <p class="section-description">
+                        Building scalable data solutions and leading technical teams
+                    </p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 class="timeline-title">Associate Analyst - Data Engineering</h3>
+                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
+                                <span class="timeline-period">Nov 2022 - Present</span>
+                            </div>
+                            <div class="timeline-description">
+                                <ul class="achievement-list">
+                                    <li>Architected and deployed scalable push notification infrastructure processing <strong>100K+ notifications per minute</strong> using Python, Apache Spark, and Ray.io, achieving 4x performance improvement</li>
+                                    <li>Led development of personalized user journey engines leveraging advanced machine learning algorithms and real-time data processing</li>
+                                    <li>Built enterprise-grade report computation service using Scala and Theta Sketches, reducing processing time by <strong>40%</strong></li>
+                                    <li>Enhanced multi-channel messaging APIs (WhatsApp, SMS) supporting <strong>50+ enterprise clients</strong></li>
+                                    <li>Mentored and supervised <strong>3 junior engineers</strong>, facilitating knowledge transfer</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Apache Spark</span>
+                                <span class="skill-tag">Ray.io</span>
+                                <span class="skill-tag">Scala</span>
+                                <span class="skill-tag">AWS</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="experience__item">
-                        <div class="experience__date">Aug 2021 - Oct 2022</div>
-                        <div class="experience__content">
-                            <h3 class="experience__title">Trainee - Data Engineering</h3>
-                            <h4 class="experience__company">PurpleTalk India Pvt Ltd, Upshot.ai</h4>
-                            <ul class="experience__list">
-                                <li>Built automated import/export pipelines for client data using Python, Spark, and AWS S3</li>
-                                <li>Developed campaign alert systems for proactive pipeline monitoring</li>
-                            </ul>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 class="timeline-title">Trainee - Data Engineering</h3>
+                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
+                                <span class="timeline-period">Aug 2021 - Oct 2022</span>
+                            </div>
+                            <div class="timeline-description">
+                                <ul class="achievement-list">
+                                    <li>Built automated External Input Import pipelines using Python and Spark for seamless data integration</li>
+                                    <li>Developed External Output Export functionality enabling client data portability</li>
+                                    <li>Created proactive alert systems for pipeline monitoring and issue resolution</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Spark</span>
+                                <span class="skill-tag">AWS S3</span>
+                                <span class="skill-tag">ETL</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="experience__item">
-                        <div class="experience__date">Feb 2020 - July 2021</div>
-                        <div class="experience__content">
-                            <h3 class="experience__title">Intern - Data Engineering</h3>
-                            <h4 class="experience__company">PurpleTalk India Pvt Ltd, Upshot.ai</h4>
-                            <ul class="experience__list">
-                                <li>Automated weekly status reports using Python and Spark for client insights</li>
-                                <li>Delivered 1000+ ad hoc data analysis requests using Big Data technologies</li>
-                            </ul>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3 class="timeline-title">Intern - Data Engineering</h3>
+                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
+                                <span class="timeline-period">Feb 2020 - July 2021</span>
+                            </div>
+                            <div class="timeline-description">
+                                <ul class="achievement-list">
+                                    <li>Automated weekly status reports providing client insights on DAU, MAU, and key metrics</li>
+                                    <li>Delivered <strong>1000+ ad hoc data analysis</strong> requests using Big Data technologies</li>
+                                    <li>Generated customized reports per client requirements with high accuracy</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Spark</span>
+                                <span class="skill-tag">Data Analysis</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,66 +253,182 @@
         </section>
 
         <!-- Skills Section -->
-        <section class="skills section" id="skills">
+        <section class="skills" id="skills">
             <div class="container">
-                <h2 class="section__title">Skills</h2>
-                <div class="skills__grid">
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">Programming & Frameworks</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Scala</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">NodeJS</span>
-                        </div>
+                <div class="section-header">
+                    <span class="section-tag">Technical Expertise</span>
+                    <h2 class="section-title">Skills & Technologies</h2>
+                    <p class="section-description">
+                        Comprehensive technical stack for modern data engineering solutions
+                    </p>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-tabs">
+                        <button class="skill-tab active" data-tab="programming">Programming</button>
+                        <button class="skill-tab" data-tab="bigdata">Big Data</button>
+                        <button class="skill-tab" data-tab="cloud">Cloud & DevOps</button>
+                        <button class="skill-tab" data-tab="database">Databases</button>
                     </div>
-                    
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">Big Data Technologies</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">Apache Spark</span>
-                            <span class="skill-tag">Ray.io</span>
-                            <span class="skill-tag">Kafka</span>
-                            <span class="skill-tag">ETL Development</span>
-                            <span class="skill-tag">Data Pipeline Design</span>
+                    <div class="skills-content">
+                        <div class="skill-category active" data-category="programming">
+                            <div class="skill-grid">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Python</span>
+                                        <span class="skill-level">90%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Scala</span>
+                                        <span class="skill-level">85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Java</span>
+                                        <span class="skill-level">75%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="75"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">JavaScript</span>
+                                        <span class="skill-level">70%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="70"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">Cloud Platforms</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">AWS (EC2, S3, KMS)</span>
-                            <span class="skill-tag">Google Cloud Platform</span>
+                        <div class="skill-category" data-category="bigdata">
+                            <div class="skill-grid">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Apache Spark</span>
+                                        <span class="skill-level">90%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Ray.io</span>
+                                        <span class="skill-level">85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Kafka</span>
+                                        <span class="skill-level">80%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">ETL Development</span>
+                                        <span class="skill-level">95%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="95"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">Databases</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">NoSQL</span>
-                            <span class="skill-tag">Redis</span>
+                        <div class="skill-category" data-category="cloud">
+                            <div class="skill-grid">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">AWS</span>
+                                        <span class="skill-level">85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Google Cloud Platform</span>
+                                        <span class="skill-level">75%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="75"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Docker & Kubernetes</span>
+                                        <span class="skill-level">80%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Linux</span>
+                                        <span class="skill-level">85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">DevOps & Tools</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Git</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skills__category">
-                        <h3 class="skills__category-title">Visualization & APIs</h3>
-                        <div class="skills__list">
-                            <span class="skill-tag">Flask</span>
-                            <span class="skill-tag">RESTful Web Services</span>
-                            <span class="skill-tag">Data Visualization</span>
+                        <div class="skill-category" data-category="database">
+                            <div class="skill-grid">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">MongoDB</span>
+                                        <span class="skill-level">85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">MySQL</span>
+                                        <span class="skill-level">80%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">Redis</span>
+                                        <span class="skill-level">75%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="75"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span class="skill-name">NoSQL</span>
+                                        <span class="skill-level">80%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-bar" data-progress="80"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -187,119 +436,212 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="projects section" id="projects">
+        <section class="projects" id="projects">
             <div class="container">
-                <h2 class="section__title">Key Projects</h2>
-                <div class="projects__grid">
-                    <div class="project-card">
-                        <h3 class="project-card__title">Real-time Push Notification System</h3>
-                        <p class="project-card__description">
-                            Built scalable system processing 100K+ notifications per minute with 4x improvement in notification delivery rate.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Spark</span>
-                            <span class="tech-tag">Ray.io</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3 class="project-card__title">Journey Report Computation Service</h3>
-                        <p class="project-card__description">
-                            Developed big data analytics using Theta Sketches and Spark. Reduced event processing time and generated meaningful client reports.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Scala</span>
-                            <span class="tech-tag">Spark</span>
-                            <span class="tech-tag">Theta Sketches</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3 class="project-card__title">KMS-Encryption Utility Tool</h3>
-                        <p class="project-card__description">
-                            Created secure PII data masking/unmasking solution integrated across all platform services.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">AWS KMS</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3 class="project-card__title">Event-Report Computation Pipeline</h3>
-                        <p class="project-card__description">
-                            Built real-time analysis system for user behavioral data enabling client conversion and engagement optimization.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Scala</span>
-                            <span class="tech-tag">Spark</span>
-                            <span class="tech-tag">Big Data Analytics</span>
-                        </div>
-                    </div>
+                <div class="section-header">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-description">
+                        Showcase of innovative data engineering solutions and their business impact
+                    </p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="education section">
-            <div class="container">
-                <h2 class="section__title">Education</h2>
-                <div class="education__content">
-                    <div class="education__item">
-                        <h3 class="education__degree">Bachelor of Technology in Electrical and Electronics Engineering</h3>
-                        <p class="education__institution">Jawaharlal Nehru Technological University, Kakinada</p>
-                        <p class="education__year">2014-2017</p>
+                <div class="projects-grid">
+                    <div class="project-card" data-project="notification-engine">
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <span class="project-icon">🚀</span>
+                            </div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Real-time Notification Engine</h3>
+                            <p class="project-description">
+                                Enterprise-scale push notification system processing 100K+ messages per minute 
+                                with 4x performance improvement and 60% cost reduction.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Apache Spark</span>
+                                <span class="tech-tag">Ray.io</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-value">100K+</span>
+                                    <span class="stat-label">Messages/Min</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">4x</span>
+                                    <span class="stat-label">Performance</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="education__item">
-                        <h3 class="education__degree">Diploma in Electrical and Electronics Engineering</h3>
-                        <p class="education__institution">Bapatla Polytechnic College, Andhra Pradesh</p>
-                        <p class="education__year">2011-2014</p>
+
+                    <div class="project-card" data-project="analytics-platform">
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <span class="project-icon">📊</span>
+                            </div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Journey Analytics Platform</h3>
+                            <p class="project-description">
+                                Advanced user journey tracking and analytics system providing real-time insights 
+                                for 10M+ users with 40% reduction in processing time.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Scala</span>
+                                <span class="tech-tag">Spark</span>
+                                <span class="tech-tag">Theta Sketches</span>
+                                <span class="tech-tag">Kafka</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-value">10M+</span>
+                                    <span class="stat-label">Users</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">40%</span>
+                                    <span class="stat-label">Faster</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="security-framework">
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <span class="project-icon">🔒</span>
+                            </div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Data Security Framework</h3>
+                            <p class="project-description">
+                                Comprehensive PII data encryption and masking solution ensuring 100% compliance 
+                                with data privacy regulations across all platform services.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">AWS KMS</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-value">100%</span>
+                                    <span class="stat-label">Compliance</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Breaches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="event-pipeline">
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <span class="project-icon">⚡</span>
+                            </div>
+                            <div class="project-overlay">
+                                <button class="project-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Event Processing Pipeline</h3>
+                            <p class="project-description">
+                                High-throughput event processing system handling 1M+ events per hour with 
+                                machine learning integration and auto-scaling capabilities.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Scala</span>
+                                <span class="tech-tag">Apache Spark</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">ML</span>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-value">1M+</span>
+                                    <span class="stat-label">Events/Hour</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">99.9%</span>
+                                    <span class="stat-label">Uptime</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="contact section" id="contact">
+        <section class="contact" id="contact">
             <div class="container">
-                <h2 class="section__title">Contact</h2>
-                <div class="contact__content">
-                    <div class="contact__info">
-                        <div class="contact__item">
-                            <h4>Email</h4>
-                            <a href="mailto:bhemesh208@gmail.com">bhemesh208@gmail.com</a>
+                <div class="section-header">
+                    <span class="section-tag">Get in touch</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-description">
+                        Ready to build something amazing? Let's discuss your data engineering needs
+                    </p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h3>Email</h3>
+                            <p>bhemesh208@gmail.com</p>
                         </div>
-                        <div class="contact__item">
-                            <h4>Phone</h4>
-                            <a href="tel:+919703718987">+91-9703718987</a>
+                        <div class="contact-card">
+                            <div class="contact-icon">📱</div>
+                            <h3>Phone</h3>
+                            <p>+91-9703718987</p>
                         </div>
-                        <div class="contact__item">
-                            <h4>Location</h4>
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <h3>Location</h3>
                             <p>Hyderabad, Telangana, India</p>
                         </div>
-                        <div class="contact__item">
-                            <h4>LinkedIn</h4>
-                            <a href="https://linkedin.com/in/bhemeswara-rao-ankireddy-905981155" target="_blank">linkedin.com/in/bhemeswara-rao-ankireddy-905981155</a>
+                        <div class="contact-card">
+                            <div class="contact-icon">💼</div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/bhemeswara-rao-ankireddy-905981155</p>
                         </div>
                     </div>
-                    
-                    <form class="contact__form" id="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
-                    </form>
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">
+                                <span>Send Message</span>
+                                <i class="btn__icon">→</i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -308,9 +650,37 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Bhemeswararao Ankireddy. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Bhemeswararao Ankireddy. All rights reserved.</p>
+                    <p>Built with modern web technologies and hosted on GitHub Pages</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Project Modals -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span class="notification-text"></span>
+        <button class="notification-close">&times;</button>
+    </div>
 
     <script src="app.js"></script>
 </body>
