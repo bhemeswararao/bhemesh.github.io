@@ -1,518 +1,767 @@
-// Portfolio JavaScript Functionality
+// Modern Portfolio JavaScript with Advanced Interactions
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-    }
-
-    // Close mobile menu when clicking on links
-    const navLinks = document.querySelectorAll('.nav__link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-            if (navToggle) {
-                navToggle.classList.remove('active');
-            }
-        });
-    });
-
-    // Smooth scrolling for navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed header
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Active navigation link highlighting
-    function highlightActiveSection() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav__link');
-        
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + currentSection) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // Header background opacity on scroll
-    function handleHeaderScroll() {
-        const header = document.querySelector('.header');
-        if (header) {
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        }
-    }
-
-    // Scroll event listener
-    window.addEventListener('scroll', function() {
-        highlightActiveSection();
-        handleHeaderScroll();
-        animateOnScroll();
-    });
-
-    // Scroll animations
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.fade-in');
-        
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('visible');
-            }
-        });
-    }
-
-    // Add fade-in class to elements that should animate
-    function initScrollAnimations() {
-        const animatedElements = [
-            '.about__content',
-            '.experience__item',
-            '.skills__category',
-            '.project-card',
-            '.education__item',
-            '.contact__content'
-        ];
-
-        animatedElements.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.classList.add('fade-in');
-            });
-        });
-    }
-
-    // Notification system - moved to top for better accessibility
-    function showNotification(message, type = 'info') {
-        // Remove existing notifications
-        const existingNotification = document.querySelector('.notification');
-        if (existingNotification) {
-            existingNotification.remove();
-        }
-
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification--${type}`;
-        notification.innerHTML = `
-            <div class="notification__content">
-                <span class="notification__message">${message}</span>
-                <button class="notification__close" aria-label="Close notification">&times;</button>
-            </div>
-        `;
-
-        // Add comprehensive styles
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 10000;
-            padding: 16px 20px;
-            border-radius: 8px;
-            color: white;
-            font-weight: 500;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s ease-out;
-            max-width: 400px;
-            min-width: 300px;
-            font-family: var(--font-family-base);
-        `;
-
-        // Set background color based on type
-        if (type === 'success') {
-            notification.style.background = '#48bb78';
-        } else if (type === 'error') {
-            notification.style.background = '#f56565';
-        } else {
-            notification.style.background = '#4299e1';
-        }
-
-        const notificationContent = notification.querySelector('.notification__content');
-        notificationContent.style.cssText = `
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        `;
-
-        const closeBtn = notification.querySelector('.notification__close');
-        closeBtn.style.cssText = `
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 0;
-            line-height: 1;
-        `;
-
-        // Add to DOM
-        document.body.appendChild(notification);
-
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-
-        // Close functionality
-        closeBtn.addEventListener('click', () => {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => {
-                if (document.body.contains(notification)) {
-                    notification.remove();
-                }
-            }, 300);
-        });
-
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-            if (document.body.contains(notification)) {
-                notification.style.transform = 'translateX(400px)';
-                setTimeout(() => {
-                    if (document.body.contains(notification)) {
-                        notification.remove();
-                    }
-                }, 300);
-            }
-        }, 5000);
-    }
-
-    // Contact form handling with better validation and feedback
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            console.log('Form submitted!'); // Debug log
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name')?.trim();
-            const email = formData.get('email')?.trim();
-            const message = formData.get('message')?.trim();
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                showNotification('Please fill in all fields', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            if (message.length < 10) {
-                showNotification('Please enter a message with at least 10 characters', 'error');
-                return;
-            }
-            
-            // Get submit button and show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-            
-            submitButton.textContent = 'Sending...';
-            submitButton.disabled = true;
-            submitButton.style.opacity = '0.7';
-            
-            // Simulate form submission with success feedback
-            setTimeout(() => {
-                showNotification(`Thank you ${name}! Your message has been sent successfully. I'll get back to you soon.`, 'success');
-                contactForm.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-                submitButton.style.opacity = '1';
-                
-                console.log('Form submission completed successfully'); // Debug log
-            }, 1500);
-        });
-    }
-
-    // Email validation
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    // Generate comprehensive resume content
-    function generateResumeContent() {
-        return `BHEMESWARARAO ANKIREDDY
-Data Engineer
-===========================================
-
-Contact Information:
-Email: bhemesh208@gmail.com
-Phone: +91-9703718987
-Location: Hyderabad, Telangana, India
-LinkedIn: linkedin.com/in/bhemeswara-rao-ankireddy-905981155
-
-===========================================
-PROFESSIONAL SUMMARY:
-===========================================
-Result-oriented Data Engineer with 4+ years of experience designing and implementing scalable data pipelines and analytics solutions. Successfully transitioned from blockchain development to data engineering, bringing strong analytical thinking and problem-solving skills. Expertise in Python, Apache Spark, Scala, and cloud platforms including AWS and GCP. Passionate about turning complex data challenges into efficient, automated solutions that drive business value.
-
-===========================================
-PROFESSIONAL EXPERIENCE:
-===========================================
-
-ASSOCIATE ANALYST - DATA ENGINEERING
-PurpleTalk India Pvt Ltd, Upshot.ai | Nov 2022 - Present
-
-• Developed scalable push notification system processing 100K+ notifications/min using Python, Spark & Ray.io
-• Built personalized journey engines with Ray.io enabling lifecycle-based user engagement
-• Created Journey Report Computation service using Scala, Spark, and Theta Sketches
-• Enhanced WhatsApp & SMS APIs using Python and Flask for platform-wide integration
-• Developed KMS-Encryption utilities for secure PII data handling with AWS KMS
-• Led Event-Report computation pipelines for real-time user analytics
-• Supervised and mentored 3 interns in Python and Big Data technologies
-
-TRAINEE - DATA ENGINEERING
-PurpleTalk India Pvt Ltd, Upshot.ai | Aug 2021 - Oct 2022
-
-• Built automated import/export pipelines for client data using Python, Spark, and AWS S3
-• Developed campaign alert systems for proactive pipeline monitoring
-
-INTERN - DATA ENGINEERING
-PurpleTalk India Pvt Ltd, Upshot.ai | Feb 2020 - July 2021
-
-• Automated weekly status reports using Python and Spark for client insights
-• Delivered 1000+ ad hoc data analysis requests using Big Data technologies
-
-===========================================
-TECHNICAL SKILLS:
-===========================================
-
-Programming & Frameworks: 
-Python, Scala, Java, JavaScript, NodeJS
-
-Big Data Technologies: 
-Apache Spark, Ray.io, Kafka, ETL Development, Data Pipeline Design
-
-Cloud Platforms: 
-AWS (EC2, S3, KMS), Google Cloud Platform (GCP)
-
-Databases: 
-MongoDB, MySQL, NoSQL, Redis
-
-DevOps & Tools: 
-Docker, Kubernetes, Linux, Git
-
-Visualization & APIs: 
-Flask, RESTful Web Services, Data Visualization
-
-===========================================
-KEY PROJECTS:
-===========================================
-
-1. REAL-TIME PUSH NOTIFICATION SYSTEM
-   • Built scalable system processing 100K+ notifications per minute
-   • Technologies: Python, Spark, Ray.io
-   • Impact: 4x improvement in notification delivery rate
-
-2. JOURNEY REPORT COMPUTATION SERVICE
-   • Developed big data analytics using Theta Sketches and Spark
-   • Reduced event processing time and generated meaningful client reports
-   • Technologies: Scala, Spark, Theta Sketches
-
-3. KMS-ENCRYPTION UTILITY TOOL
-   • Created secure PII data masking/unmasking solution
-   • Integrated across all platform services
-   • Technologies: Python, Java, AWS KMS
-
-4. EVENT-REPORT COMPUTATION PIPELINE
-   • Built real-time analysis system for user behavioral data
-   • Enables client conversion and engagement optimization
-   • Technologies: Scala, Spark, Big Data Analytics
-
-===========================================
-EDUCATION:
-===========================================
-
-Bachelor of Technology in Electrical and Electronics Engineering
-Jawaharlal Nehru Technological University, Kakinada (2014-2017)
-
-Diploma in Electrical and Electronics Engineering
-Bapatla Polytechnic College, Andhra Pradesh (2011-2014)
-
-===========================================
-Generated on: ${new Date().toLocaleDateString()}
-===========================================`;
-    }
-
-    // Download Resume functionality with better feedback
-    const downloadResumeBtn = document.getElementById('download-resume');
-    if (downloadResumeBtn) {
-        downloadResumeBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            console.log('Download resume button clicked!'); // Debug log
-            
-            try {
-                // Show immediate feedback
-                const originalText = this.textContent;
-                this.textContent = 'Downloading...';
-                this.disabled = true;
-                
-                // Create resume content
-                const resumeContent = generateResumeContent();
-                const filename = 'Bhemeswararao_Ankireddy_Resume.txt';
-                
-                // Download the file
-                downloadTextFile(filename, resumeContent);
-                
-                // Show success notification
-                showNotification('Resume downloaded successfully!', 'success');
-                
-                // Reset button after short delay
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.disabled = false;
-                }, 1000);
-                
-                console.log('Resume download completed'); // Debug log
-                
-            } catch (error) {
-                console.error('Error downloading resume:', error);
-                showNotification('Error downloading resume. Please try again.', 'error');
-                
-                // Reset button
-                this.textContent = 'Download Resume';
-                this.disabled = false;
-            }
-        });
-    }
-
-    // Enhanced download text file function
-    function downloadTextFile(filename, text) {
-        try {
-            const element = document.createElement('a');
-            const file = new Blob([text], { type: 'text/plain' });
-            
-            element.href = URL.createObjectURL(file);
-            element.download = filename;
-            element.style.display = 'none';
-            
-            document.body.appendChild(element);
-            element.click();
-            
-            // Clean up
-            setTimeout(() => {
-                document.body.removeChild(element);
-                URL.revokeObjectURL(element.href);
-            }, 100);
-            
-            return true;
-        } catch (error) {
-            console.error('Error creating download:', error);
-            return false;
-        }
-    }
-
-    // View My Work button smooth scroll with feedback
-    const viewWorkBtn = document.querySelector('a[href="#projects"]');
-    if (viewWorkBtn) {
-        viewWorkBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                const offsetTop = projectsSection.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Brief visual feedback
-                setTimeout(() => {
-                    showNotification('Viewing projects section', 'info');
-                }, 500);
-            }
-        });
-    }
 
     // Initialize all functionality
+    initThemeToggle();
+    initNavigation();
+    initTypingAnimation();
     initScrollAnimations();
-    animateOnScroll();
+    initCounterAnimations();
+    initSkillProgressBars();
+    initSkillTabs();
+    initContactForm();
+    initProjectModals();
+    initResumeDownload();
+    initHeroButtons();
 
-    // Initialize typing effect for better visual appeal
-    function initTypingEffect() {
-        const heroSubtitle = document.querySelector('.hero__subtitle');
-        if (heroSubtitle) {
-            const originalText = heroSubtitle.textContent;
-            heroSubtitle.style.opacity = '0';
-            
-            setTimeout(() => {
-                heroSubtitle.style.opacity = '1';
-                heroSubtitle.style.transition = 'opacity 0.5s ease-in';
-            }, 1000);
+    console.log('🚀 Modern Portfolio loaded successfully!');
+
+    // Theme Toggle Functionality
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        const themeIcon = themeToggle.querySelector('.theme-toggle__icon');
+
+        // Check for saved theme or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+
+            // Show feedback
+            showNotification(`Switched to ${newTheme} mode`, 'info');
+
+            // Add ripple effect
+            createRipple(this, e);
+        });
+
+        function updateThemeIcon(theme) {
+            if (themeIcon) {
+                themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
         }
     }
 
-    // Add welcome message
-    setTimeout(() => {
-        showNotification('Welcome to my portfolio! Feel free to explore and get in touch.', 'info');
-    }, 2000);
+    // Enhanced Navigation
+    function initNavigation() {
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav__link');
+        const header = document.getElementById('header');
 
-    initTypingEffect();
+        // Mobile menu toggle
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
 
-    // Intersection Observer for better performance
-    if ('IntersectionObserver' in window) {
+        // Close mobile menu when clicking on links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navMenu) navMenu.classList.remove('active');
+                if (navToggle) navToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        function updateHeader() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        window.addEventListener('scroll', updateHeader);
+
+        // Active navigation link highlighting
+        function highlightActiveSection() {
+            const sections = document.querySelectorAll('section');
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+    }
+
+    // Typing Animation
+    function initTypingAnimation() {
+        const typingText = document.querySelector('.typing-text');
+        if (!typingText) return;
+
+        const texts = [
+            'Senior Data Engineer',
+            'Big Data Specialist', 
+            'Cloud Solutions Architect',
+            'ETL Pipeline Expert',
+            'Analytics Engineer'
+        ];
+
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[currentTextIndex];
+
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && currentCharIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        type();
+    }
+
+    // Scroll Animations
+    function initScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('animated');
                 }
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, observerOptions);
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe elements for animation
+        const animateElements = document.querySelectorAll('.timeline-item, .project-card, .contact-card, .skill-item');
+        animateElements.forEach(el => {
+            el.classList.add('animate-on-scroll');
             observer.observe(el);
         });
     }
 
-    console.log('Portfolio JavaScript loaded successfully'); // Debug log
+    // Counter Animations
+    function initCounterAnimations() {
+        const counters = document.querySelectorAll('.stat-number[data-target]');
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('K') ? '' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+    }
+
+    // Skill Progress Bars
+    function initSkillProgressBars() {
+        const skillBars = document.querySelectorAll('.skill-bar[data-progress]');
+
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progress = entry.target.dataset.progress;
+                    entry.target.style.width = progress + '%';
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    }
+
+    // Skill Tabs
+    function initSkillTabs() {
+        const skillTabs = document.querySelectorAll('.skill-tab');
+        const skillCategories = document.querySelectorAll('.skill-category');
+
+        skillTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const targetCategory = this.dataset.tab;
+
+                // Update active tab
+                skillTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show target category
+                skillCategories.forEach(category => {
+                    category.classList.remove('active');
+                    if (category.dataset.category === targetCategory) {
+                        category.classList.add('active');
+                    }
+                });
+
+                // Re-trigger progress bar animations
+                setTimeout(() => {
+                    const activeBars = document.querySelectorAll('.skill-category.active .skill-bar');
+                    activeBars.forEach(bar => {
+                        const progress = bar.dataset.progress;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = progress + '%';
+                        }, 100);
+                    });
+                }, 100);
+            });
+        });
+    }
+
+    // Contact Form
+    function initContactForm() {
+        const contactForm = document.getElementById('contact-form');
+        if (!contactForm) return;
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+
+            // Validate form
+            if (!validateForm(data)) {
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span>Sending...</span>';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual form handler)
+            setTimeout(() => {
+                showNotification('Thank you! Your message has been sent successfully.', 'success');
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        function validateForm(data) {
+            const required = ['name', 'email', 'subject', 'message'];
+
+            for (let field of required) {
+                if (!data[field] || data[field].trim() === '') {
+                    showNotification(`Please fill in the ${field} field.`, 'error');
+                    return false;
+                }
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+    // Project Modals
+    function initProjectModals() {
+        const projectCards = document.querySelectorAll('.project-card');
+        const modal = document.getElementById('project-modal');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.querySelector('.modal-close');
+
+        if (!modal) return;
+
+        // Project data
+        const projectData = {
+            'notification-engine': {
+                title: 'Real-time Notification Engine',
+                fullDescription: `
+                    <h3>Project Overview</h3>
+                    <p>Developed a highly scalable, enterprise-grade push notification system capable of processing over 100,000 notifications per minute with 99.9% reliability. This system serves millions of users across multiple platforms and channels.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-time message processing with sub-second latency</li>
+                        <li>Multi-channel delivery (Push, SMS, Email, WhatsApp)</li>
+                        <li>Auto-scaling infrastructure based on load</li>
+                        <li>Advanced analytics and delivery tracking</li>
+                        <li>Fault-tolerant architecture with automatic failover</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>Backend:</strong> Python, Apache Spark, Ray.io</li>
+                        <li><strong>Cloud:</strong> AWS (EC2, SQS, SNS, Lambda)</li>
+                        <li><strong>Database:</strong> Redis for caching, MongoDB for persistence</li>
+                        <li><strong>Monitoring:</strong> CloudWatch, Grafana</li>
+                    </ul>
+
+                    <h3>Business Impact</h3>
+                    <ul>
+                        <li>4x improvement in message delivery rate</li>
+                        <li>60% reduction in infrastructure costs</li>
+                        <li>Improved user engagement by 35%</li>
+                        <li>Zero downtime deployment capability</li>
+                    </ul>
+                `,
+                technologies: ['Python', 'Apache Spark', 'Ray.io', 'AWS', 'Redis', 'MongoDB'],
+                metrics: {
+                    'Messages/Min': '100K+',
+                    'Uptime': '99.9%',
+                    'Latency': '<100ms',
+                    'Cost Reduction': '60%'
+                }
+            },
+            'analytics-platform': {
+                title: 'Journey Analytics Platform',
+                fullDescription: `
+                    <h3>Project Overview</h3>
+                    <p>Built a comprehensive user journey tracking and analytics platform that processes behavioral data for over 10 million users in real-time, providing actionable insights for product teams and marketing campaigns.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-time event processing and analytics</li>
+                        <li>Customer journey mapping and visualization</li>
+                        <li>Predictive analytics and machine learning integration</li>
+                        <li>Custom dashboard creation and reporting</li>
+                        <li>A/B testing framework integration</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>Processing:</strong> Scala, Apache Spark, Theta Sketches</li>
+                        <li><strong>Streaming:</strong> Apache Kafka, Kafka Streams</li>
+                        <li><strong>Storage:</strong> Apache Druid, ClickHouse</li>
+                        <li><strong>Visualization:</strong> Apache Superset, Custom React dashboards</li>
+                    </ul>
+
+                    <h3>Business Impact</h3>
+                    <ul>
+                        <li>40% reduction in data processing time</li>
+                        <li>Real-time insights for 10M+ users</li>
+                        <li>25% improvement in conversion rates</li>
+                        <li>Data-driven decision making for 50+ teams</li>
+                    </ul>
+                `,
+                technologies: ['Scala', 'Apache Spark', 'Theta Sketches', 'Kafka', 'Druid', 'React'],
+                metrics: {
+                    'Users Tracked': '10M+',
+                    'Events/Hour': '50M+',
+                    'Processing Time': '-40%',
+                    'Conversion Lift': '25%'
+                }
+            },
+            'security-framework': {
+                title: 'Data Security Framework',
+                fullDescription: `
+                    <h3>Project Overview</h3>
+                    <p>Designed and implemented a comprehensive data security framework ensuring 100% compliance with GDPR, CCPA, and other data privacy regulations while maintaining high performance across all platform services.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Automatic PII detection and classification</li>
+                        <li>Role-based access control (RBAC)</li>
+                        <li>Data encryption at rest and in transit</li>
+                        <li>Comprehensive audit logging</li>
+                        <li>Data anonymization and pseudonymization</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong> AWS KMS, AES-256 encryption</li>
+                        <li><strong>Backend:</strong> Python, Java, Spring Security</li>
+                        <li><strong>Access Control:</strong> OAuth 2.0, JWT tokens</li>
+                        <li><strong>Monitoring:</strong> AWS CloudTrail, ELK Stack</li>
+                    </ul>
+
+                    <h3>Compliance & Security</h3>
+                    <ul>
+                        <li>100% GDPR and CCPA compliance</li>
+                        <li>Zero security breaches since implementation</li>
+                        <li>SOC 2 Type II certification achieved</li>
+                        <li>Regular security audits and penetration testing</li>
+                    </ul>
+                `,
+                technologies: ['Python', 'Java', 'AWS KMS', 'Docker', 'OAuth 2.0', 'ELK Stack'],
+                metrics: {
+                    'Compliance': '100%',
+                    'Security Breaches': '0',
+                    'Data Protected': 'TB+',
+                    'Audit Score': 'A+'
+                }
+            },
+            'event-pipeline': {
+                title: 'Event Processing Pipeline',
+                fullDescription: `
+                    <h3>Project Overview</h3>
+                    <p>Architected a high-throughput event processing pipeline capable of handling over 1 million events per hour with machine learning integration for real-time behavioral analytics and recommendations.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Stream processing with Apache Spark Structured Streaming</li>
+                        <li>Real-time ML model inference and predictions</li>
+                        <li>Auto-scaling based on event volume</li>
+                        <li>Dead letter queue handling and retry mechanisms</li>
+                        <li>Multi-tenant architecture with resource isolation</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <ul>
+                        <li><strong>Processing:</strong> Scala, Apache Spark Structured Streaming</li>
+                        <li><strong>Orchestration:</strong> Kubernetes, Apache Airflow</li>
+                        <li><strong>ML Platform:</strong> MLflow, Apache Spark MLlib</li>
+                        <li><strong>Storage:</strong> Apache Kafka, Apache Cassandra</li>
+                    </ul>
+
+                    <h3>Performance Metrics</h3>
+                    <ul>
+                        <li>1M+ events processed per hour</li>
+                        <li>99.9% system uptime achieved</li>
+                        <li>Sub-second processing latency</li>
+                        <li>Automatic scaling from 1-100 nodes</li>
+                    </ul>
+                `,
+                technologies: ['Scala', 'Apache Spark', 'Kubernetes', 'MLflow', 'Cassandra', 'Airflow'],
+                metrics: {
+                    'Events/Hour': '1M+',
+                    'Uptime': '99.9%',
+                    'Latency': '<1s',
+                    'Auto-scaling': '1-100 nodes'
+                }
+            }
+        };
+
+        // Open modal
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const projectKey = this.dataset.project;
+                const project = projectData[projectKey];
+
+                if (project) {
+                    modalBody.innerHTML = `
+                        <h2>${project.title}</h2>
+                        ${project.fullDescription}
+                        <div class="modal-metrics">
+                            <h3>Key Metrics</h3>
+                            <div class="metrics-grid">
+                                ${Object.entries(project.metrics).map(([key, value]) => `
+                                    <div class="metric-item">
+                                        <span class="metric-value">${value}</span>
+                                        <span class="metric-label">${key}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="modal-tech">
+                            <h3>Technologies Used</h3>
+                            <div class="tech-tags">
+                                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
+
+    // Resume Download
+    function initResumeDownload() {
+        const downloadBtn = document.getElementById('download-resume');
+        if (!downloadBtn) return;
+
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Create resume download (you can replace this with actual file URL)
+            const resumeUrl = '#'; // Replace with actual resume URL
+
+            showNotification('Resume download will be available once hosted!', 'info');
+
+            // Uncomment when you have actual resume file
+            // const link = document.createElement('a');
+            // link.href = resumeUrl;
+            // link.download = 'Bhemeswararao_Ankireddy_Resume.pdf';
+            // link.click();
+        });
+    }
+
+    // Hero Buttons
+    function initHeroButtons() {
+        const heroButtons = document.querySelectorAll('.hero__buttons .btn');
+
+        heroButtons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                createRipple(this, { clientX: this.offsetWidth / 2, clientY: this.offsetHeight / 2 });
+            });
+        });
+    }
+
+    // Utility Functions
+    function createRipple(element, event) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = (event.clientX - rect.left) - size / 2;
+        const y = (event.clientY - rect.top) - size / 2;
+
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+
+        element.appendChild(ripple);
+
+        ripple.addEventListener('animationend', () => {
+            ripple.remove();
+        });
+    }
+
+    function showNotification(message, type = 'info') {
+        const notification = document.getElementById('notification');
+        if (!notification) return;
+
+        const notificationText = notification.querySelector('.notification-text');
+        const notificationClose = notification.querySelector('.notification-close');
+
+        notificationText.textContent = message;
+        notification.className = `notification ${type} show`;
+
+        // Auto hide after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 5000);
+
+        // Manual close
+        notificationClose.addEventListener('click', () => {
+            notification.classList.remove('show');
+        });
+    }
+
+    // Smooth scroll polyfill for older browsers
+    function smoothScrollTo(target, duration = 1000) {
+        const targetElement = document.querySelector(target);
+        if (!targetElement) return;
+
+        const targetPosition = targetElement.offsetTop - 70;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        function ease(t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+
+    // Performance optimization: Lazy load images
+    function initLazyLoading() {
+        const images = document.querySelectorAll('img[data-src]');
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    // Initialize lazy loading
+    initLazyLoading();
 });
+
+// Add CSS for ripple effect
+const rippleCSS = `
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.modal-metrics {
+    margin: 2rem 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.modal-tech {
+    margin-top: 2rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.lazy {
+    filter: blur(5px);
+    transition: filter 0.3s;
+}
+`;
+
+// Inject ripple CSS
+const style = document.createElement('style');
+style.textContent = rippleCSS;
+document.head.appendChild(style);
