@@ -1,687 +1,1590 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhemeswararao Ankireddy - Senior Data Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <span class="theme-toggle__icon">🌙</span>
-    </button>
+/* Modern Data Engineer Portfolio CSS - Optimized */
 
-    <!-- Animated Background -->
-    <div class="background-animation">
-        <div class="floating-shapes">
-            <div class="shape shape--1"></div>
-            <div class="shape shape--2"></div>
-            <div class="shape shape--3"></div>
-            <div class="shape shape--4"></div>
-            <div class="shape shape--5"></div>
-        </div>
-    </div>
+:root {
+  /* Color Palette */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-200: #bfdbfe;
+  --primary-300: #93c5fd;
+  --primary-400: #60a5fa;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-800: #1e40af;
+  --primary-900: #1e3a8a;
 
-    <!-- Header Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <h3>Bhemeswararao A.</h3>
-            </div>
-            <ul class="nav__menu" id="nav-menu">
-                <li><a href="#home" class="nav__link active">Home</a></li>
-                <li><a href="#about" class="nav__link">About</a></li>
-                <li><a href="#experience" class="nav__link">Experience</a></li>
-                <li><a href="#skills" class="nav__link">Skills</a></li>
-                <li><a href="#projects" class="nav__link">Projects</a></li>
-                <li><a href="#contact" class="nav__link">Contact</a></li>
-            </ul>
-            <button class="nav__toggle" id="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+  --secondary-50: #ecfdf5;
+  --secondary-100: #d1fae5;
+  --secondary-200: #a7f3d0;
+  --secondary-300: #6ee7b7;
+  --secondary-400: #34d399;
+  --secondary-500: #10b981;
+  --secondary-600: #059669;
+  --secondary-700: #047857;
+  --secondary-800: #065f46;
+  --secondary-900: #064e3b;
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero__container container">
-                <div class="hero__content">
-                    <div class="hero__text">
-                        <div class="hero__greeting">Hello, I'm</div>
-                        <h1 class="hero__name">Bhemeswararao Ankireddy</h1>
-                        <div class="hero__title">
-                            <span class="typing-text"></span>
-                            <span class="cursor">|</span>
-                        </div>
-                        <p class="hero__description">
-                            Transforming data into strategic insights through scalable pipelines, 
-                            advanced analytics, and cloud-native solutions. Specialized in building 
-                            enterprise-grade data systems that drive business intelligence.
-                        </p>
-                        <div class="hero__buttons">
-                            <a href="#projects" class="btn btn--primary">
-                                <span>View My Work</span>
-                                <i class="btn__icon">→</i>
-                            </a>
-                            <button class="btn btn--outline" id="download-resume">
-                                <span>Download Resume</span>
-                                <i class="btn__icon">↓</i>
-                            </button>
-                            <a href="#contact" class="btn btn--ghost">
-                                <span>Let's Connect</span>
-                                <i class="btn__icon">✉</i>
-                            </a>
-                        </div>
-                        <div class="hero__social">
-                            <a href="mailto:bhemesh208@gmail.com" class="social-link" title="Email">
-                                <span class="social-icon">✉</span>
-                            </a>
-                            <a href="https://linkedin.com/in/bhemeswara-rao-ankireddy-905981155" class="social-link" title="LinkedIn" target="_blank">
-                                <span class="social-icon">💼</span>
-                            </a>
-                            <a href="https://github.com" class="social-link" title="GitHub" target="_blank">
-                                <span class="social-icon">🔗</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero__image">
-                        <div class="hero__image-container">
-                            <!-- Replace 'profile.jpg' with your uploaded photo filename -->
-                            <img src="profile.jpg" alt="Bhemeswararao Ankireddy - Data Engineer" class="hero__photo">
-                            <div class="hero__image-decoration"></div>
-                        </div>
-                        <div class="hero__stats">
-                            <div class="stat-card">
-                                <div class="stat-number" data-target="4">0</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number" data-target="50">0</div>
-                                <div class="stat-label">Projects Completed</div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-number" data-target="100">0</div>
-                                <div class="stat-label">K+ Records Processed</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  --accent-50: #fffbeb;
+  --accent-100: #fef3c7;
+  --accent-200: #fde68a;
+  --accent-300: #fcd34d;
+  --accent-400: #fbbf24;
+  --accent-500: #f59e0b;
+  --accent-600: #d97706;
+  --accent-700: #b45309;
+  --accent-800: #92400e;
+  --accent-900: #78350f;
 
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Get to know me</span>
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-description">
-                        Passionate about transforming raw data into actionable business insights
-                    </p>
-                </div>
-                <div class="about__content">
-                    <div class="about__text">
-                        <p class="about__paragraph">
-                            Passionate <strong>Data Engineer</strong> with 4+ years of expertise in designing 
-                            and implementing enterprise-scale data solutions. Successfully transitioned from 
-                            blockchain development to data engineering, bringing unique analytical perspectives 
-                            and innovative problem-solving approaches.
-                        </p>
-                        <p class="about__paragraph">
-                            Specialized in building <strong>robust ETL pipelines</strong>, real-time data processing 
-                            systems, and cloud-native architectures. Proven track record of optimizing data workflows 
-                            that process millions of records daily, resulting in <strong>40% improved processing 
-                            efficiency</strong> and significant cost savings.
-                        </p>
-                        <p class="about__paragraph">
-                            Core competencies include Python, Apache Spark, Scala, AWS cloud services, and advanced 
-                            analytics. Experienced in leading cross-functional teams and <strong>mentoring junior 
-                            engineers</strong> while delivering high-impact data solutions for enterprise clients.
-                        </p>
-                        <div class="about__highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🚀</span>
-                                <span class="highlight-text">4x Performance Improvements</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">⚡</span>
-                                <span class="highlight-text">Real-time Data Processing</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🔒</span>
-                                <span class="highlight-text">Enterprise Security Standards</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
 
-        <!-- Experience Section -->
-        <section class="experience" id="experience">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">My Journey</span>
-                    <h2 class="section-title">Professional Experience</h2>
-                    <p class="section-description">
-                        Building scalable data solutions and leading technical teams
-                    </p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Associate Analyst - Data Engineering</h3>
-                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
-                                <span class="timeline-period">Nov 2022 - Present</span>
-                            </div>
-                            <div class="timeline-description">
-                                <ul class="achievement-list">
-                                    <li>Architected and deployed scalable push notification infrastructure processing <strong>100K+ notifications per minute</strong> using Python, Apache Spark, and Ray.io, achieving 4x performance improvement</li>
-                                    <li>Led development of personalized user journey engines leveraging advanced machine learning algorithms and real-time data processing</li>
-                                    <li>Built enterprise-grade report computation service using Scala and Theta Sketches, reducing processing time by <strong>40%</strong></li>
-                                    <li>Enhanced multi-channel messaging APIs (WhatsApp, SMS) supporting <strong>50+ enterprise clients</strong></li>
-                                    <li>Mentored and supervised <strong>3 junior engineers</strong>, facilitating knowledge transfer</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Apache Spark</span>
-                                <span class="skill-tag">Ray.io</span>
-                                <span class="skill-tag">Scala</span>
-                                <span class="skill-tag">AWS</span>
-                            </div>
-                        </div>
-                    </div>
+  /* Light Theme Variables */
+  --background: var(--gray-50);
+  --surface: var(--gray-100);
+  --surface-elevated: #ffffff;
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-600);
+  --text-muted: var(--gray-500);
+  --border: var(--gray-200);
+  --border-light: var(--gray-100);
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Trainee - Data Engineering</h3>
-                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
-                                <span class="timeline-period">Aug 2021 - Oct 2022</span>
-                            </div>
-                            <div class="timeline-description">
-                                <ul class="achievement-list">
-                                    <li>Built automated External Input Import pipelines using Python and Spark for seamless data integration</li>
-                                    <li>Developed External Output Export functionality enabling client data portability</li>
-                                    <li>Created proactive alert systems for pipeline monitoring and issue resolution</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Spark</span>
-                                <span class="skill-tag">AWS S3</span>
-                                <span class="skill-tag">ETL</span>
-                            </div>
-                        </div>
-                    </div>
+  --primary: var(--primary-600);
+  --primary-hover: var(--primary-700);
+  --secondary: var(--secondary-500);
+  --secondary-hover: var(--secondary-600);
+  --accent: var(--accent-500);
+  --accent-hover: var(--accent-600);
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Intern - Data Engineering</h3>
-                                <span class="timeline-company">PurpleTalk India Pvt Ltd, Upshot.ai</span>
-                                <span class="timeline-period">Feb 2020 - July 2021</span>
-                            </div>
-                            <div class="timeline-description">
-                                <ul class="achievement-list">
-                                    <li>Automated weekly status reports providing client insights on DAU, MAU, and key metrics</li>
-                                    <li>Delivered <strong>1000+ ad hoc data analysis</strong> requests using Big Data technologies</li>
-                                    <li>Generated customized reports per client requirements with high accuracy</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">Spark</span>
-                                <span class="skill-tag">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-        <!-- Skills Section -->
-        <section class="skills" id="skills">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Technical Expertise</span>
-                    <h2 class="section-title">Skills & Technologies</h2>
-                    <p class="section-description">
-                        Comprehensive technical stack for modern data engineering solutions
-                    </p>
-                </div>
-                <div class="skills-container">
-                    <div class="skills-tabs">
-                        <button class="skill-tab active" data-tab="programming">Programming</button>
-                        <button class="skill-tab" data-tab="bigdata">Big Data</button>
-                        <button class="skill-tab" data-tab="cloud">Cloud & DevOps</button>
-                        <button class="skill-tab" data-tab="database">Databases</button>
-                    </div>
-                    <div class="skills-content">
-                        <div class="skill-category active" data-category="programming">
-                            <div class="skill-grid">
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Python</span>
-                                        <span class="skill-level">90%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Scala</span>
-                                        <span class="skill-level">85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Java</span>
-                                        <span class="skill-level">75%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="75"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">JavaScript</span>
-                                        <span class="skill-level">70%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="70"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-category" data-category="bigdata">
-                            <div class="skill-grid">
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Apache Spark</span>
-                                        <span class="skill-level">90%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Ray.io</span>
-                                        <span class="skill-level">85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Kafka</span>
-                                        <span class="skill-level">80%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="80"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">ETL Development</span>
-                                        <span class="skill-level">95%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="95"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-category" data-category="cloud">
-                            <div class="skill-grid">
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">AWS</span>
-                                        <span class="skill-level">85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Google Cloud Platform</span>
-                                        <span class="skill-level">75%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="75"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Docker & Kubernetes</span>
-                                        <span class="skill-level">80%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="80"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Linux</span>
-                                        <span class="skill-level">85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="85"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-category" data-category="database">
-                            <div class="skill-grid">
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">MongoDB</span>
-                                        <span class="skill-level">85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="85"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">MySQL</span>
-                                        <span class="skill-level">80%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="80"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">Redis</span>
-                                        <span class="skill-level">75%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="75"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-item">
-                                    <div class="skill-info">
-                                        <span class="skill-name">NoSQL</span>
-                                        <span class="skill-level">80%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-bar" data-progress="80"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 
-        <!-- Projects Section -->
-        <section class="projects" id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Portfolio</span>
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-description">
-                        Showcase of innovative data engineering solutions and their business impact
-                    </p>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card" data-project="notification-engine">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span class="project-icon">🚀</span>
-                            </div>
-                            <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Real-time Notification Engine</h3>
-                            <p class="project-description">
-                                Enterprise-scale push notification system processing 100K+ messages per minute 
-                                with 4x performance improvement and 60% cost reduction.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Apache Spark</span>
-                                <span class="tech-tag">Ray.io</span>
-                                <span class="tech-tag">AWS</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="stat">
-                                    <span class="stat-value">100K+</span>
-                                    <span class="stat-label">Messages/Min</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">4x</span>
-                                    <span class="stat-label">Performance</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
 
-                    <div class="project-card" data-project="analytics-platform">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span class="project-icon">📊</span>
-                            </div>
-                            <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Journey Analytics Platform</h3>
-                            <p class="project-description">
-                                Advanced user journey tracking and analytics system providing real-time insights 
-                                for 10M+ users with 40% reduction in processing time.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Scala</span>
-                                <span class="tech-tag">Spark</span>
-                                <span class="tech-tag">Theta Sketches</span>
-                                <span class="tech-tag">Kafka</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="stat">
-                                    <span class="stat-value">10M+</span>
-                                    <span class="stat-label">Users</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">40%</span>
-                                    <span class="stat-label">Faster</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
 
-                    <div class="project-card" data-project="security-framework">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span class="project-icon">🔒</span>
-                            </div>
-                            <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Data Security Framework</h3>
-                            <p class="project-description">
-                                Comprehensive PII data encryption and masking solution ensuring 100% compliance 
-                                with data privacy regulations across all platform services.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">AWS KMS</span>
-                                <span class="tech-tag">Docker</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="stat">
-                                    <span class="stat-value">100%</span>
-                                    <span class="stat-label">Compliance</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">0</span>
-                                    <span class="stat-label">Breaches</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-                    <div class="project-card" data-project="event-pipeline">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span class="project-icon">⚡</span>
-                            </div>
-                            <div class="project-overlay">
-                                <button class="project-btn">View Details</button>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Event Processing Pipeline</h3>
-                            <p class="project-description">
-                                High-throughput event processing system handling 1M+ events per hour with 
-                                machine learning integration and auto-scaling capabilities.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Scala</span>
-                                <span class="tech-tag">Apache Spark</span>
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">ML</span>
-                            </div>
-                            <div class="project-stats">
-                                <div class="stat">
-                                    <span class="stat-value">1M+</span>
-                                    <span class="stat-label">Events/Hour</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-value">99.9%</span>
-                                    <span class="stat-label">Uptime</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+/* Dark Theme */
+[data-theme="dark"] {
+  --background: var(--gray-900);
+  --surface: var(--gray-800);
+  --surface-elevated: var(--gray-700);
+  --text-primary: var(--gray-50);
+  --text-secondary: var(--gray-300);
+  --text-muted: var(--gray-400);
+  --border: var(--gray-700);
+  --border-light: var(--gray-600);
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Get in touch</span>
-                    <h2 class="section-title">Let's Work Together</h2>
-                    <p class="section-description">
-                        Ready to build something amazing? Let's discuss your data engineering needs
-                    </p>
-                </div>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <div class="contact-icon">📧</div>
-                            <h3>Email</h3>
-                            <p>bhemesh208@gmail.com</p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon">📱</div>
-                            <h3>Phone</h3>
-                            <p>+91-9703718987</p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon">📍</div>
-                            <h3>Location</h3>
-                            <p>Hyderabad, Telangana, India</p>
-                        </div>
-                        <div class="contact-card">
-                            <div class="contact-icon">💼</div>
-                            <h3>LinkedIn</h3>
-                            <p>linkedin.com/in/bhemeswara-rao-ankireddy-905981155</p>
-                        </div>
-                    </div>
-                    <div class="contact-form-container">
-                        <form class="contact-form" id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn--primary btn--full">
-                                <span>Send Message</span>
-                                <i class="btn__icon">→</i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 Bhemeswararao Ankireddy. All rights reserved.</p>
-                    <p>Built with modern web technologies and hosted on GitHub Pages</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <!-- Project Modals -->
-    <div class="modal" id="project-modal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body" id="modal-body">
-                <!-- Project details will be loaded here -->
-            </div>
-        </div>
-    </div>
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <span class="notification-text"></span>
-        <button class="notification-close">&times;</button>
-    </div>
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color var(--transition), color var(--transition);
+}
 
-    <script src="app.js"></script>
-</body>
-</html>
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--surface-elevated);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Background Animation */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  border-radius: var(--radius-full);
+  background: linear-gradient(45deg, var(--primary-200), var(--secondary-200));
+  opacity: 0.1;
+  animation: float 20s infinite linear;
+}
+
+.shape--1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 10%;
+  animation-duration: 25s;
+}
+
+.shape--2 {
+  width: 120px;
+  height: 120px;
+  top: 70%;
+  right: 10%;
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+.shape--3 {
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  left: 70%;
+  animation-duration: 20s;
+}
+
+.shape--4 {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 20%;
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+
+.shape--5 {
+  width: 140px;
+  height: 140px;
+  top: 20%;
+  right: 30%;
+  animation-duration: 40s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .header.scrolled {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav__logo h3 {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.nav__menu {
+  display: flex;
+  list-style: none;
+  gap: var(--space-8);
+}
+
+.nav__link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all var(--transition);
+  padding: var(--space-2) 0;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: var(--primary);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition);
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  width: 100%;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+.nav__toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+@media (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: var(--surface-elevated);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    gap: var(--space-4);
+    min-width: 200px;
+    transition: right var(--transition);
+  }
+
+  .nav__menu.active {
+    right: var(--space-4);
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .nav__toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-24) 0 var(--space-20);
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+}
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+}
+
+.hero__greeting {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero__name {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 0.4s forwards;
+}
+
+.hero__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: var(--space-6);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 0.6s forwards;
+}
+
+.typing-text {
+  border-right: 2px solid var(--primary);
+  padding-right: var(--space-1);
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: var(--primary);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero__description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 0.8s forwards;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 1s forwards;
+}
+
+@media (max-width: 640px) {
+  .hero__buttons {
+    flex-direction: column;
+  }
+}
+
+.hero__social {
+  display: flex;
+  gap: var(--space-4);
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 1.2s forwards;
+}
+
+@media (max-width: 968px) {
+  .hero__social {
+    justify-content: center;
+  }
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--surface-elevated);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+/* Hero Image */
+.hero__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.hero__image-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 0.6s forwards;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 6px solid var(--surface-elevated);
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition);
+}
+
+.hero__photo:hover {
+  transform: scale(1.05);
+}
+
+.hero__image-decoration {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-full);
+  opacity: 0.3;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out 1.4s forwards;
+}
+
+@media (max-width: 480px) {
+  .hero__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.btn--primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn--outline {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn--outline:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--ghost {
+  color: var(--text-secondary);
+  background: var(--surface-elevated);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--full {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn__icon {
+  transition: transform var(--transition);
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(3px);
+}
+
+/* Section Styles */
+section {
+  padding: var(--space-24) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-tag {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--primary-100);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+[data-theme="dark"] .section-tag {
+  background: var(--primary-900);
+  color: var(--primary-300);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.section-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* About Section */
+.about {
+  background: var(--surface);
+}
+
+.about__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about__paragraph {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: 1.8;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+}
+
+.highlight-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-icon {
+  font-size: 1.5rem;
+}
+
+.highlight-text {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Experience Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 15px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-12);
+  padding-left: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    padding-left: var(--space-12);
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 22px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  border: 3px solid var(--surface);
+  box-shadow: 0 0 0 3px var(--border);
+}
+
+@media (max-width: 768px) {
+  .timeline-marker {
+    left: 7px;
+  }
+}
+
+.timeline-content {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-header {
+  margin-bottom: var(--space-4);
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-company {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.timeline-period {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-left: var(--space-2);
+}
+
+.achievement-list {
+  list-style: none;
+  margin: var(--space-6) 0;
+}
+
+.achievement-list li {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.achievement-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.timeline-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.skill-tag {
+  padding: var(--space-1) var(--space-3);
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .skill-tag {
+  background: var(--primary-900);
+  color: var(--primary-300);
+}
+
+/* Skills Section */
+.skills {
+  background: var(--surface);
+}
+
+.skills-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.skill-tab {
+  padding: var(--space-3) var(--space-6);
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.skill-tab.active,
+.skill-tab:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.skills-content {
+  position: relative;
+}
+
+.skill-category {
+  display: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.skill-category.active {
+  display: block;
+  opacity: 1;
+}
+
+.skill-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.skill-item {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition);
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.125rem;
+}
+
+.skill-level {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.skill-progress {
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--radius-full);
+  width: 0%;
+  transition: width 1.5s ease-out;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-8);
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.project-image {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary-100), var(--secondary-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .project-image {
+  background: linear-gradient(135deg, var(--primary-900), var(--secondary-900));
+}
+
+.project-image-placeholder {
+  font-size: 3rem;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all var(--transition);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-btn {
+  padding: var(--space-3) var(--space-6);
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.project-btn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: var(--space-8);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.tech-tag {
+  padding: var(--space-1) var(--space-3);
+  background: var(--accent-100);
+  color: var(--accent-700);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .tech-tag {
+  background: var(--accent-900);
+  color: var(--accent-300);
+}
+
+.project-stats {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* Contact Section */
+.contact {
+  background: var(--surface);
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-16);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 968px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.contact-info {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.contact-card h3 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.contact-card p {
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.contact-form-container {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-6);
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-4);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Footer */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: var(--space-12) 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-text p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--surface-elevated);
+  border-radius: var(--radius-xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 1;
+  transition: color var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: var(--space-8);
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  top: 100px;
+  right: var(--space-4);
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: var(--shadow-lg);
+  display: none;
+  align-items: center;
+  gap: var(--space-4);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.notification.show {
+  display: flex;
+}
+
+.notification-text {
+  color: var(--text-primary);
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: color var(--transition);
+}
+
+.notification-close:hover {
+  color: var(--text-primary);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-100 { opacity: 1; }
+
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Additional CSS for ripple effect and modal enhancements */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.modal-metrics {
+    margin: 2rem 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 1rem;
+    background: var(--surface);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.modal-tech {
+    margin-top: 2rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.lazy {
+    filter: blur(5px);
+    transition: filter 0.3s;
+}
