@@ -1,7 +1,6 @@
-// Modern Portfolio JavaScript with Advanced Interactions
+// Modern Portfolio JavaScript - Optimized
 
 document.addEventListener('DOMContentLoaded', function() {
-
     // Initialize all functionality
     initThemeToggle();
     initNavigation();
@@ -693,75 +692,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize lazy loading
     initLazyLoading();
 });
-
-// Add CSS for ripple effect
-const rippleCSS = `
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-.modal-metrics {
-    margin: 2rem 0;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.metric-item {
-    text-align: center;
-    padding: 1rem;
-    background: var(--surface);
-    border-radius: 0.5rem;
-    border: 1px solid var(--border);
-}
-
-.metric-value {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.metric-label {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-top: 0.25rem;
-}
-
-.modal-tech {
-    margin-top: 2rem;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.lazy {
-    filter: blur(5px);
-    transition: filter 0.3s;
-}
-`;
-
-// Inject ripple CSS
-const style = document.createElement('style');
-style.textContent = rippleCSS;
-document.head.appendChild(style);
